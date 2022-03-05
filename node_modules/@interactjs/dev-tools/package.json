@@ -1,0 +1,24 @@
+{
+  "name": "@interactjs/dev-tools",
+  "version": "1.10.11",
+  "main": "index",
+  "module": "index",
+  "peerDependencies": {
+    "@interactjs/modifiers": "1.10.11",
+    "@interactjs/utils": "1.10.11"
+  },
+  "optionalDependencies": {
+    "@interactjs/interact": "1.10.11"
+  },
+  "devDependencies": {
+    "vue": "next"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": [
+    "**/index.js",
+    "**/index.prod.js"
+  ],
+  "license": "MIT"
+}
