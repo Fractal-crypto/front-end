@@ -35,7 +35,7 @@
               <template #button-content>
                 <b-avatar size="2em" button>FT</b-avatar>
               </template>
-              <router-link class="dropdown-item" to="/settings">Settings</router-link>
+             
               <router-link
                 v-if="botCount === 1"
                 class="dropdown-item"
