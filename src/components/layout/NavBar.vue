@@ -56,7 +56,7 @@
                   </b-nav-text>
                 </div>
               </li>
-              <router-link class="nav-link navbar-nav" to="/settings">Settings</router-link>
+              
               <router-link
                 v-if="botCount === 1"
                 class="nav-link navbar-nav"
