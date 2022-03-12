@@ -3,7 +3,7 @@
     <b-navbar toggleable="sm" type="dark" variant="primary">
       <router-link class="navbar-brand" exact to="/">
         <img class="logo" src="@/assets/freqtrade-logo.png" alt="Home Logo" />
-        <span class="navbar-brand-title d-sm-none d-md-inline">Test UI</span>
+        <span class="navbar-brand-title d-sm-none d-md-inline">Freqtrade UI</span>
       </router-link>
 
       <!-- TODO: For XS breakpoint, this should be here...  -->
@@ -13,29 +13,62 @@
       <b-collapse id="nav-collapse" class="text-right text-md-center" is-nav>
         <b-navbar-nav>
           <router-link v-if="!canRunBacktest" class="nav-link navbar-nav" to="/trade"
-            >Trading</router-link
+            >Trade</router-link
           >
           <router-link v-if="!canRunBacktest" class="nav-link navbar-nav" to="/dashboard"
             >Dashboard</router-link
           >
+<<<<<<< HEAD
           <router-link class="nav-link navbar-nav" to="/graph">Charts</router-link>
          
+=======
+          <router-link class="nav-link navbar-nav" to="/graph">Chart</router-link>
+          <router-link class="nav-link navbar-nav" to="/logs">Logs</router-link>
+>>>>>>> parent of 5e85c665 (duong)
           <router-link v-if="canRunBacktest" class="nav-link navbar-nav" to="/backtest"
             >Backtest</router-link
           >
+          <BootswatchThemeSelect />
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
-         <b-navbar-nav class="ml-auto" menu-class="w-100">
+        <b-navbar-nav class="ml-auto" menu-class="w-100">
           <!-- TODO This should show outside of the dropdown in XS mode -->
-          
+          <div class="d-flex justify-content-between">
+            <b-dropdown
+              v-if="botCount > 1"
+              size="sm"
+              class="m-1"
+              no-caret
+              variant="info"
+              toggle-class="d-flex align-items-center "
+              menu-class="my-0 py-0"
+            >
+              <template #button-content>
+                <BotEntry :bot="selectedBotObj" :no-buttons="true" />
+              </template>
+              <BotList :small="true" />
+            </b-dropdown>
+            <ReloadControl class="mr-3" />
+          </div>
+          <li class="d-none d-sm-block nav-item text-secondary mr-2">
+            <b-nav-text class="verticalCenter small mr-2">
+              {{ botName || 'No bot selected' }}
+            </b-nav-text>
+            <b-nav-text class="verticalCenter">
+              {{ isBotOnline ? 'Online' : 'Offline' }}
+            </b-nav-text>
+          </li>
           <li v-if="hasBots" class="nav-item">
             <!-- Hide dropdown on xs, instead show below  -->
             <b-nav-item-dropdown right class="d-none d-sm-block">
               <template #button-content>
                 <b-avatar size="2em" button>FT</b-avatar>
               </template>
+              <b-dropdown-item>V: {{ getUiVersion }}</b-dropdown-item>
               <router-link class="dropdown-item" to="/settings">Settings</router-link>
+              <b-checkbox v-model="layoutLockedLocal" class="pl-5">Lock layout</b-checkbox>
+              <b-dropdown-item @click="resetDynamicLayout">Reset Layout</b-dropdown-item>
               <router-link
                 v-if="botCount === 1"
                 class="dropdown-item"
@@ -206,7 +239,7 @@ export default class NavBar extends Vue {
   }
 
   setTitle() {
-    let title = 'TUK Test UI';
+    let title = 'freqUI';
     if (this.openTradesInTitle === OpenTradeVizOptions.asTitle) {
       title = `(${this.openTradeCount}) ${title}`;
     }
