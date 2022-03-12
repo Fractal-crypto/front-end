@@ -41,9 +41,9 @@ export enum LayoutMutations {
 const DEFAULT_TRADING_LAYOUT: GridItemData[] = [
   { i: TradeLayout.multiPane, x: 0, y: 0, w: 3, h: 35 },
  /* { i: TradeLayout.chartView, x: 3, y: 0, w: 9, h: 14 }, */
-  { i: TradeLayout.tradeDetail, x: 3, y: 19, w: 9, h: 6 }, 
-  { i: TradeLayout.openTrades, x: 3, y: 14, w: 9, h: 5 },
-  { i: TradeLayout.tradeHistory, x: 3, y: 25, w: 9, h: 10 },
+  { i: TradeLayout.tradeDetail, x: 3, y: 5, w: 9, h: 6 }, 
+  { i: TradeLayout.openTrades, x: 3, y: 0, w: 9, h: 5 },
+  { i: TradeLayout.tradeHistory, x: 3, y: 10, w: 9, h: 10 },
 ];
 
 // Currently only multiPane is visible
