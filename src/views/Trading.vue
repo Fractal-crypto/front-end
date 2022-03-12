@@ -104,7 +104,7 @@
         <TradeDetail :trade="tradeDetail" :stake-currency="stakeCurrency" />
       </DraggableContainer>
     </GridItem>
-    <GridItem
+    <!-- <GridItem
       v-if="gridLayoutTradeDetail.h != 0"
       :i="gridLayoutChartView.i"
       :x="gridLayoutChartView.x"
@@ -123,7 +123,7 @@
         >
         </CandleChartContainer>
       </DraggableContainer>
-    </GridItem>
+    </GridItem> -->
   </GridLayout>
 </template>
 
@@ -237,9 +237,9 @@ export default class Trading extends Vue {
     return findGridLayout(this.gridLayout, TradeLayout.tradeDetail);
   }
 
-  get gridLayoutChartView(): GridItemData {
-    return findGridLayout(this.gridLayout, TradeLayout.chartView);
-  }
+  //get gridLayoutChartView(): GridItemData {
+  //  return findGridLayout(this.gridLayout, TradeLayout.chartView);
+  //}
 
   mounted() {
     this.localGridLayout = [...this.getTradingLayoutSm];
