@@ -3,7 +3,7 @@
     <b-navbar toggleable="sm" type="dark" variant="primary">
       <router-link class="navbar-brand" exact to="/">
         <img class="logo" src="@/assets/freqtrade-logo.png" alt="Home Logo" />
-        <span class="navbar-brand-title d-sm-none d-md-inline">Test UI</span>
+        <span class="navbar-brand-title d-sm-none d-md-inline" style="font-size: 25px;">BOLD</span>
       </router-link>
 
       <!-- TODO: For XS breakpoint, this should be here...  -->
@@ -12,13 +12,13 @@
 
       <b-collapse id="nav-collapse" class="text-right text-md-center" is-nav>
         <b-navbar-nav>
-          <router-link v-if="!canRunBacktest" class="nav-link navbar-nav" to="/trade"
+          <router-link v-if="!canRunBacktest" class="nav-link navbar-nav" to="/trade" style="font-size: 25px;"
             >Trading</router-link
           >
-          <router-link v-if="!canRunBacktest" class="nav-link navbar-nav" to="/dashboard"
+          <router-link v-if="!canRunBacktest" class="nav-link navbar-nav" to="/dashboard" style="font-size: 25px;"
             >Dashboard</router-link
           >
-          <router-link class="nav-link navbar-nav" to="/graph">Charts</router-link>
+          <router-link class="nav-link navbar-nav" to="/graph" style="font-size: 25px;">Charts</router-link>
          
           <router-link v-if="canRunBacktest" class="nav-link navbar-nav" to="/backtest"
             >Backtest</router-link
@@ -206,7 +206,7 @@ export default class NavBar extends Vue {
   }
 
   setTitle() {
-    let title = 'TUK Test UI';
+    let title = 'TUK BOLD';
     if (this.openTradesInTitle === OpenTradeVizOptions.asTitle) {
       title = `(${this.openTradeCount}) ${title}`;
     }
@@ -253,7 +253,7 @@ export default class NavBar extends Vue {
   padding-left: 0.5em;
 }
 .navbar {
-  padding: 0.2rem 1rem;
+  padding: 0.7rem 1rem;
 }
 
 .router-link-active,
