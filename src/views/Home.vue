@@ -13,7 +13,7 @@
     <br />
     <p style="color: red;">
       If you need any help, please visit our github.
-      <a href="https://github.com/Fractal-crypto" style="color: red;">Github</a>.
+      <a href="https://github.com/Fractal-crypto">Github</a>.
     </p>
 
     <p style="color: red;">Have fun - <i>wishes you the Tukorea</i></p>
