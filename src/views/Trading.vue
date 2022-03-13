@@ -42,10 +42,6 @@
           <b-tab title="Daily Stats" lazy>
             <DailyStats />
           </b-tab>
-
-          <b-tab title="Pairlist" lazy>
-            <FTBotAPIPairList />
-          </b-tab>
           <b-tab title="Pair Locks" lazy>
             <PairLockList />
           </b-tab>
