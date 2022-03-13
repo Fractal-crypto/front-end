@@ -22,9 +22,10 @@
       :h="gridLayoutMultiPane.h"
       drag-allow-from=".card-header"
     >
-      <DraggableContainer header="Multi Pane">
-        <b-tabs content-class="mt-3" class="mt-1" >
-          <b-tab title="Pairs combined" active style="display:none">
+      <DraggableContainer>
+          <Performance class="performance-view" />
+        <!-- <b-tabs content-class="mt-3" class="mt-1">
+          <b-tab title="Pairs combined" active>
             <PairSummary :pairlist="whitelist" :current-locks="currentLocks" :trades="openTrades" />
           </b-tab>
           <b-tab title="General">
@@ -45,7 +46,7 @@
           <b-tab title="Pair Locks" lazy>
             <PairLockList />
           </b-tab>
-        </b-tabs>
+        </b-tabs> -->
       </DraggableContainer>
     </GridItem>
     <GridItem
@@ -167,7 +168,7 @@ const layoutNs = namespace(StoreModules.layout);
     TradeList,
   },
 })
-export default class Trading extends Vue {
+export default class Per extends Vue {
   @ftbot.Getter [BotStoreGetters.detailTradeId]!: number;
 
   @ftbot.Getter [BotStoreGetters.openTrades]!: Trade[];
@@ -186,11 +187,11 @@ export default class Trading extends Vue {
 
   @ftbot.Getter [BotStoreGetters.stakeCurrency]!: string;
 
-  @layoutNs.Getter [LayoutGetters.getTradingLayout]!: GridItemData[];
+  @layoutNs.Getter [LayoutGetters.getPerLayout]!: GridItemData[];
 
-  @layoutNs.Getter [LayoutGetters.getTradingLayoutSm]!: GridItemData[];
+  @layoutNs.Getter [LayoutGetters.getPerLayoutSm]!: GridItemData[];
 
-  @layoutNs.Action [LayoutActions.setTradingLayout];
+  @layoutNs.Action [LayoutActions.setPerLayout];
 
   @layoutNs.Getter [LayoutGetters.getLayoutLocked]: boolean;
 
@@ -208,7 +209,7 @@ export default class Trading extends Vue {
 
   get gridLayout(): GridItemData[] {
     if (this.isResizableLayout) {
-      return this.getTradingLayout;
+      return this.getPerLayout;
     }
     return this.localGridLayout;
   }
@@ -238,18 +239,18 @@ export default class Trading extends Vue {
   //}
 
   mounted() {
-    this.localGridLayout = [...this.getTradingLayoutSm];
+    this.localGridLayout = [...this.getPerLayoutSm];
   }
 
   layoutUpdatedEvent(newLayout) {
     if (this.isResizableLayout) {
-      this.setTradingLayout(newLayout);
+      this.setPerLayout(newLayout);
     }
   }
 
   get responsiveGridLayouts() {
     return {
-      sm: this[LayoutGetters.getTradingLayoutSm],
+      sm: this[LayoutGetters.getPerLayoutSm],
     };
   }
 

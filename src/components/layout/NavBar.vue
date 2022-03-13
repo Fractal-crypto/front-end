@@ -21,8 +21,9 @@
           <router-link class="nav-link navbar-nav" to="/graph" style ="font-size : 35px">Charts</router-link>
          
           <router-link v-if="canRunBacktest" class="nav-link navbar-nav" to="/backtest"
-            >Backtest</router-link
-          >
+            >Backtest</router-link>
+          <router-link v-if="!canRunBacktest" class="nav-link navbar-nav" to="/Per"
+            >Performance</router-link>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
