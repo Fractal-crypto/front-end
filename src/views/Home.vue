@@ -7,16 +7,16 @@
     <img alt="Freqtrade logo" src="../assets/Robot.png" width="450px" class="my-5" />
     <!--    <div alt="Freqtrade logo" class="logo-svg my-5 mx-auto" />-->
     <div>
-      <h1>TuKorea Crypto currency trading bot</h1>
+      <h1 style="color: red;">TuKorea Crypto currency trading bot</h1>
     </div>
-    <div>This page allows you to control your trading bot.</div>
+    <div style="color: red;">This page allows you to control your trading bot.</div>
     <br />
-    <p>
+    <p style="color: red;">
       If you need any help, please visit our github.
-      <a href="https://github.com/Fractal-crypto">Github</a>.
+      <a href="https://github.com/Fractal-crypto" style="color: red;">Github</a>.
     </p>
 
-    <p>Have fun - <i>wishes you the Tukorea</i></p>
+    <p style="color: red;">Have fun - <i>wishes you the Tukorea</i></p>
   </div>
 </template>
 
