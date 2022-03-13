@@ -22,7 +22,7 @@
          
           <router-link v-if="canRunBacktest" class="nav-link navbar-nav" to="/backtest"
             >Backtest</router-link>
-          <router-link v-if="!canRunBacktest" class="nav-link navbar-nav" to="/Per"
+          <router-link v-if="!canRunBacktest" class="nav-link navbar-nav" to="/Per" style ="font-size : 35px"
             >Performance</router-link>
         </b-navbar-nav>
 
