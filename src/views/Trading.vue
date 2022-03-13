@@ -33,9 +33,6 @@
             </div>
             <BotStatus />
           </b-tab>
-          <b-tab title="Performance">
-            <Performance class="performance-view" />
-          </b-tab>
           <b-tab title="Balance" lazy>
             <Balance />
           </b-tab>
