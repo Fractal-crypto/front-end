@@ -23,8 +23,8 @@
       drag-allow-from=".card-header"
     >
       <DraggableContainer header="Multi Pane">
-        <b-tabs content-class="mt-3" class="mt-1">
-          <b-tab title="Pairs combined" active>
+        <b-tabs content-class="mt-3" class="mt-1" >
+          <b-tab title="Pairs combined" active style="display:none">
             <PairSummary :pairlist="whitelist" :current-locks="currentLocks" :trades="openTrades" />
           </b-tab>
           <b-tab title="General">

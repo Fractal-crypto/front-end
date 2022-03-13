@@ -22,8 +22,9 @@
       :h="gridLayoutMultiPane.h"
       drag-allow-from=".card-header"
     >
-      <DraggableContainer header="Multi Pane">
-        <b-tabs content-class="mt-3" class="mt-1">
+      <DraggableContainer>
+          <Performance class="performance-view" />
+        <!-- <b-tabs content-class="mt-3" class="mt-1">
           <b-tab title="Pairs combined" active>
             <PairSummary :pairlist="whitelist" :current-locks="currentLocks" :trades="openTrades" />
           </b-tab>
@@ -45,7 +46,7 @@
           <b-tab title="Pair Locks" lazy>
             <PairLockList />
           </b-tab>
-        </b-tabs>
+        </b-tabs> -->
       </DraggableContainer>
     </GridItem>
     <GridItem
