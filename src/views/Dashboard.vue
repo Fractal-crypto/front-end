@@ -87,9 +87,9 @@
       :min-h="4"
       drag-allow-from=".drag-header"
     >
-      <DraggableContainer header="Trades Log">
-        <TradesLogChart :trades="allTradesAllBots" :show-title="false" />
-      </DraggableContainer>
+<!--      <DraggableContainer header="Trades Log">-->
+<!--        <TradesLogChart :trades="allTradesAllBots" :show-title="false" />-->
+<!--      </DraggableContainer>-->
     </GridItem>
   </GridLayout>
 </template>
