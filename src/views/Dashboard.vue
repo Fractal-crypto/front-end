@@ -70,8 +70,11 @@
       :min-h="4"
       drag-allow-from=".drag-header"
     >
-      <DraggableContainer header="Cumulative Profit">
-        <CumProfitChart :trades="allTradesAllBots" :show-title="false" />
+<!--      <DraggableContainer header="Cumulative Profit">-->
+<!--        <CumProfitChart :trades="allTradesAllBots" :show-title="false" />-->
+<!--      </DraggableContainer>-->
+      <DraggableContainer header="Trades Log">
+        <TradesLogChart :trades="allTradesAllBots" :show-title="false" />
       </DraggableContainer>
     </GridItem>
     <GridItem
