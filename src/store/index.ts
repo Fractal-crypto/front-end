@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import { createStore } from 'vuex'
 
 import { getCurrentTheme, getTheme, storeCurrentTheme } from '@/shared/themes';
 import axios from 'axios';
@@ -10,6 +11,13 @@ import createBotStore, { MultiBotStoreGetters } from './modules/botStoreWrapper'
 import alertsModule from './modules/alerts';
 import layoutModule from './modules/layout';
 import settingsModule from './modules/settings';
+import router from '@/router'
+import { auth } from '@/firebase'
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut
+} from 'firebase/auth'
 
 Vue.use(Vuex);
 const initCurrentTheme = getCurrentTheme();
@@ -21,6 +29,7 @@ const store = new Vuex.Store({
     [StoreModules.uiSettings]: settingsModule,
   },
   state: {
+    user: null,
     currentTheme: initCurrentTheme,
     uiVersion: 'dev',
   },
@@ -43,6 +52,12 @@ const store = new Vuex.Store({
     },
   },
   mutations: {
+    SET_USER (state, user) {
+      state.user = user
+    },
+    CLEAR_USER (state) {
+      state.user = null
+    },
     mutateCurrentTheme(state, newTheme: string) {
       storeCurrentTheme(newTheme);
       state.currentTheme = newTheme;
@@ -52,6 +67,85 @@ const store = new Vuex.Store({
     },
   },
   actions: {
+    async login ({ commit}, details) {
+      const { email, password } = details
+
+      try {
+        await signInWithEmailAndPassword(auth, email, password)
+
+
+      } catch (error) {
+        switch(error.code) {
+          case 'auth/user-not-found':
+            alert("user not found")
+            break
+          case 'auth/wrong-password':
+            alert("wrong password")
+            break
+          default:
+            alert("something go wrong")
+        }
+
+        return
+      }
+      commit('SET_USER', auth.currentUser)
+
+      router.push('/')
+    },
+    async register ({ commit}, details) {
+      const { email, password } = details
+
+      try {
+        await createUserWithEmailAndPassword(auth, email, password)
+
+
+      } catch (error) {
+        switch(error.code) {
+          case 'auth/email-already-in-use':
+            alert("email-already-in-use'")
+            break
+          case 'auth/invalid-email':
+            alert("invalid-email")
+            break
+          case 'auth/operation-not-allowed':
+            alert("Operation not allowd")
+            break
+          case 'auth/weak-password':
+            alert("week password")
+            break
+          default:
+            alert("something go wron")
+        }
+
+        return
+      }
+      commit('SET_USER', auth.currentUser)
+
+      router.push('/')
+    },
+    async logout ({commit}) {
+      await signOut(auth)
+
+      commit('CLEAR_USER')
+
+      router.push('/login')
+    },
+
+    fetchUser ({ commit }) {
+      auth.onAuthStateChanged(async user => {
+        if (user === null) {
+          commit('CLEAR_USER')
+
+        } else {
+          commit('SET_USER', user)
+
+          if (router.isReady() && router.currentRoute.value.path === '/login2') {
+            router.push('/')
+          }
+        }
+      })
+    },
+
     setCurrentTheme({ commit }, newTheme: string) {
       commit('mutateCurrentTheme', newTheme);
     },

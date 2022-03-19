@@ -5,7 +5,7 @@ import Error404 from '@/views/Error404.vue';
 import store from '@/store';
 import StoreModules from '@/store/storeSubModules';
 import { MultiBotStoreGetters } from '@/store/modules/botStoreWrapper';
-
+import { auth } from '@/firebase'
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
@@ -14,42 +14,48 @@ const routes: Array<RouteConfig> = [
     name: 'Home',
     component: Home,
     meta: {
+      requiresAuth: true,
       allowAnonymous: true,
     },
   },
   {
     path: '/trade',
-    name: 'Freqtrade Trading',
+    name: 'Trading',
     component: () => import('@/views/Trading.vue'),
   },
   {
+    path: '/login2',
+    name: 'Login2',
+    component: () => import('@/views/Logintest.vue')
+  },
+  {
     path: '/per',
-    name: 'Freqtrade Per',
+    name: 'Per',
     component: () => import('@/views/Per.vue'),
   },
   {
     path: '/graph',
-    name: 'Freqtrade Graph',
+    name: 'Graph',
     component: () => import('@/views/Graphs.vue'),
   },
   {
     path: '/logs',
-    name: 'Freqtrade Logs',
+    name: 'Logs',
     component: () => import('@/views/LogView.vue'),
   },
   {
     path: '/backtest',
-    name: 'Freqtrade Backtest',
+    name: 'Backtest',
     component: () => import('@/views/Backtesting.vue'),
   },
   {
     path: '/dashboard',
-    name: 'Freqtrade Dashboard',
+    name: 'Dashboard',
     component: () => import('@/views/Dashboard.vue'),
   },
   {
     path: '/balance',
-    name: 'Freqtrade Balance',
+    name: ' Balance',
     component: () => import('@/components/ftbot/Balance.vue'),
   },
   {
@@ -68,7 +74,7 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: '/settings',
-    name: 'Freqtrade Settings',
+    name: 'Settings',
     component: () => import('@/views/Settings.vue'),
   },
   {
@@ -104,5 +110,19 @@ router.beforeEach((to, from, next) => {
     next();
   }
 });
+
+router.beforeEach((to, from, next) => {
+  if (to.path === '/login2' && auth.currentUser) {
+    next('/')
+    return;
+  }
+
+  if (to.matched.some(record => record.meta.requiresAuth) && !auth.currentUser) {
+    next('login2')
+    return;
+  }
+
+  next();
+})
 
 export default router;
