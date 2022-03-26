@@ -24,13 +24,7 @@
       :min-h="4"
       drag-allow-from=".drag-header"
     >
-      <DraggableContainer :header="`Daily Profit ${botCount > 1 ? 'combined' : ''}`">
-        <DailyChart
-          v-if="allDailyStatsAllBots"
-          :daily-stats="allDailyStatsAllBots"
-          :show-title="false"
-        />
-      </DraggableContainer>
+    
     </GridItem>
     <GridItem
       :i="gridLayoutBotComparison.i"
@@ -56,9 +50,7 @@
       :min-h="4"
       drag-allow-from=".drag-header"
     >
-      <DraggableContainer header="Open Trades">
-        <trade-list :active-trades="true" :trades="allOpenTradesAllBots" multi-bot-view />
-      </DraggableContainer>
+   
     </GridItem>
     <GridItem
       :i="gridLayoutCumChart.i"
