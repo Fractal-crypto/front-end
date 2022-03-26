@@ -7,10 +7,21 @@ export enum TradeLayout {
   tradeDetail = 'g-tradeDetail',
  /* chartView = 'g-chartView', */
 }
+export enum PerLayout {
+  dailyChart = 'g-dailyChart',
+  dailyChart2 = 'g-dailyChart2',
+  botComparison = 'g-botComparison',
+  botComparison2 = 'g-botComparison2',
+  allOpenTrades = 'g-allOpenTrades',
+  cumChartChart = 'g-cumChartChart',
+  tradesLogChart = 'g-TradesLogChart',
+}
 
 export enum DashboardLayout {
   dailyChart = 'g-dailyChart',
+  dailyChart2 = 'g-dailyChart2',
   botComparison = 'g-botComparison',
+  botComparison2 = 'g-botComparison2',
   allOpenTrades = 'g-allOpenTrades',
   cumChartChart = 'g-cumChartChart',
   tradesLogChart = 'g-TradesLogChart',
@@ -22,11 +33,14 @@ export enum LayoutGetters {
   getTradingLayoutSm = 'getTradingLayoutSm',
   getTradingLayout = 'getTradingLayout',
   getLayoutLocked = 'getLayoutLocked',
+  getPerLayoutSm = 'getPerLayoutSm',
+  getPerLayout = 'getPerLayout',
 }
 
 export enum LayoutActions {
   setDashboardLayout = 'setDashboardLayout',
   setTradingLayout = 'setTradingLayout',
+  setPerLayout = 'setPerLayout',
   resetDashboardLayout = 'resetDashboardLayout',
   resetTradingLayout = 'resetTradingLayout',
   setLayoutLocked = 'setLayoutLocked',
@@ -36,14 +50,15 @@ export enum LayoutMutations {
   setDashboardLayout = 'setDashboardLayout',
   setTradingLayout = 'setTradingLayout',
   setLayoutLocked = 'setLayoutLocked',
+  setPerLayout = 'setPerLayout',
 }
 // Define default layouts
 const DEFAULT_TRADING_LAYOUT: GridItemData[] = [
-  { i: TradeLayout.multiPane, x: 0, y: 0, w: 3, h: 35 },
- /* { i: TradeLayout.chartView, x: 3, y: 0, w: 9, h: 14 }, */
-  { i: TradeLayout.tradeDetail, x: 3, y: 5, w: 9, h: 6 }, 
-  { i: TradeLayout.openTrades, x: 3, y: 0, w: 9, h: 5 },
-  { i: TradeLayout.tradeHistory, x: 3, y: 10, w: 9, h: 10 },
+ /* { i: TradeLayout.multiPane, x: 0, y: 0, w: 3, h: 35 },
+  { i: TradeLayout.chartView, x: 3, y: 0, w: 9, h: 14 }, */
+  { i: TradeLayout.tradeDetail, x: 0, y: 5, w: 12, h: 6 }, 
+  { i: TradeLayout.openTrades, x: 0, y: 0, w: 12, h: 5 },
+  { i: TradeLayout.tradeHistory, x: 0, y: 10, w: 12, h: 10 },
 ];
 
 // Currently only multiPane is visible
@@ -53,6 +68,25 @@ const DEFAULT_TRADING_LAYOUT_SM: GridItemData[] = [
   { i: TradeLayout.tradeDetail, x: 0, y: 19, w: 12, h: 0 }, 
   { i: TradeLayout.openTrades, x: 0, y: 8, w: 12, h: 0 },
   { i: TradeLayout.tradeHistory, x: 0, y: 25, w: 12, h: 0 },
+];
+const DEFAULT_PER_LAYOUT: GridItemData[] = [
+  { i: DashboardLayout.botComparison, x: 0, y: 0, w: 6, h: 6 } /* Bot Comparison */,
+  { i: DashboardLayout.botComparison2, x: 0, y: 12, w: 6, h: 6 } /* Bot Comparison */,
+  { i: DashboardLayout.dailyChart, x: 6, y: 0, w: 6, h: 6 },
+  { i: DashboardLayout.dailyChart2, x: 6, y: 12, w: 6, h: 6 },
+  { i: DashboardLayout.allOpenTrades, x: 0, y: 6, w: 6, h: 6 },
+  { i: DashboardLayout.cumChartChart, x: 6, y: 6, w: 6, h: 6 },
+  { i: DashboardLayout.tradesLogChart, x: 0, y: 12, w: 12, h: 4 },
+];
+
+// Currently only multiPane is visible
+const DEFAULT_PER_LAYOUT_SM: GridItemData[] = [
+  { i: DashboardLayout.botComparison, x: 0, y: 0, w: 12, h: 6 } /* Bot Comparison */,
+  { i: DashboardLayout.botComparison2, x: 0, y: 30, w: 8, h: 6 } /* Bot Comparison */,
+  { i: DashboardLayout.allOpenTrades, x: 0, y: 6, w: 12, h: 8 },
+  { i: DashboardLayout.dailyChart, x: 0, y: 14, w: 12, h: 6 },
+  { i: DashboardLayout.cumChartChart, x: 0, y: 20, w: 12, h: 6 },
+  { i: DashboardLayout.tradesLogChart, x: 0, y: 26, w: 12, h: 4 },
 ];
 
 const DEFAULT_DASHBOARD_LAYOUT: GridItemData[] = [
@@ -74,6 +108,7 @@ const DEFAULT_DASHBOARD_LAYOUT_SM: GridItemData[] = [
 const STORE_DASHBOARD_LAYOUT = 'ftDashboardLayout';
 const STORE_TRADING_LAYOUT = 'ftTradingLayout';
 const STORE_LAYOUT_LOCK = 'ftLayoutLocked';
+const STORE_PER_LAYOUT = 'ftPerLayout';
 
 function getLayoutLocked() {
   const fromStore = localStorage.getItem(STORE_LAYOUT_LOCK);
@@ -111,6 +146,7 @@ export default {
     dashboardLayout: getLayout(STORE_DASHBOARD_LAYOUT, DEFAULT_DASHBOARD_LAYOUT),
     tradingLayout: getLayout(STORE_TRADING_LAYOUT, DEFAULT_TRADING_LAYOUT),
     layoutLocked: getLayoutLocked(),
+    perLayout: getLayout(STORE_PER_LAYOUT, DEFAULT_PER_LAYOUT),
   },
 
   getters: {
@@ -129,6 +165,12 @@ export default {
     [LayoutGetters.getLayoutLocked](state) {
       return state.layoutLocked;
     },
+    [LayoutGetters.getPerLayoutSm]() {
+      return [...DEFAULT_PER_LAYOUT_SM];
+    },
+    [LayoutGetters.getPerLayout](state) {
+      return state.perLayout;
+    },
   },
 
   mutations: {
@@ -144,6 +186,10 @@ export default {
       state.layoutLocked = locked;
       localStorage.setItem(STORE_LAYOUT_LOCK, JSON.stringify(locked));
     },
+    [LayoutMutations.setPerLayout](state, layout) {
+      state.dashboardLayout = layout;
+      localStorage.setItem(STORE_PER_LAYOUT, JSON.stringify(layout));
+    },
   },
 
   actions: {
@@ -152,6 +198,9 @@ export default {
     },
     [LayoutActions.setTradingLayout]({ commit }, layout) {
       commit(LayoutMutations.setTradingLayout, layout);
+    },
+    [LayoutActions.setPerLayout]({ commit }, layout) {
+      commit(LayoutMutations.setPerLayout, layout);
     },
     [LayoutActions.setLayoutLocked]({ commit }, locked: boolean) {
       commit(LayoutMutations.setLayoutLocked, locked);

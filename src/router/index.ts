@@ -23,6 +23,11 @@ const routes: Array<RouteConfig> = [
     component: () => import('@/views/Trading.vue'),
   },
   {
+    path: '/per',
+    name: 'Freqtrade Per',
+    component: () => import('@/views/Per.vue'),
+  },
+  {
     path: '/graph',
     name: 'Freqtrade Graph',
     component: () => import('@/views/Graphs.vue'),

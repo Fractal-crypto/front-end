@@ -13,7 +13,7 @@
     @layout-updated="layoutUpdatedEvent"
     @breakpoint-changed="breakpointChanged"
   >
-    <GridItem
+  <!--  <GridItem
       v-if="gridLayoutMultiPane.h != 0"
       :i="gridLayoutMultiPane.i"
       :x="gridLayoutMultiPane.x"
@@ -23,8 +23,8 @@
       drag-allow-from=".card-header"
     >
       <DraggableContainer header="Multi Pane">
-        <b-tabs content-class="mt-3" class="mt-1">
-          <b-tab title="Pairs combined" active>
+        <b-tabs content-class="mt-3" class="mt-1" >
+          <b-tab title="Pairs combined" active style="display:none">
             <PairSummary :pairlist="whitelist" :current-locks="currentLocks" :trades="openTrades" />
           </b-tab>
           <b-tab title="General">
@@ -33,25 +33,18 @@
             </div>
             <BotStatus />
           </b-tab>
-          <b-tab title="Performance">
-            <Performance class="performance-view" />
-          </b-tab>
           <b-tab title="Balance" lazy>
             <Balance />
           </b-tab>
           <b-tab title="Daily Stats" lazy>
             <DailyStats />
           </b-tab>
-
-          <b-tab title="Pairlist" lazy>
-            <FTBotAPIPairList />
-          </b-tab>
           <b-tab title="Pair Locks" lazy>
             <PairLockList />
           </b-tab>
         </b-tabs>
       </DraggableContainer>
-    </GridItem>
+    </GridItem> -->
     <GridItem
       v-if="gridLayoutOpenTrades.h != 0"
       :i="gridLayoutOpenTrades.i"

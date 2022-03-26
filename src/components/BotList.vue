@@ -1,6 +1,6 @@
 <template>
   <div v-if="botCount > 0">
-    <h3 v-if="!small">Let's start Trading!!!</h3>
+    <h3 v-if="!small" style="color: red;">Let's start Trading!!!</h3>
     <b-list-group>
       <b-list-group-item
         v-for="bot in allAvailableBots"

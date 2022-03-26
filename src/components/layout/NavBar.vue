@@ -2,8 +2,8 @@
   <header>
     <b-navbar toggleable="sm" type="dark" variant="primary">
       <router-link class="navbar-brand" exact to="/">
-        <img class="logo" src="@/assets/freqtrade-logo.png" alt="Home Logo" />
-        <span class="navbar-brand-title d-sm-none d-md-inline">Test UI</span>
+       
+        <span class="navbar-brand-title d-sm-none d-md-inline" style ="font-size : 35px" >START</span>
       </router-link>
 
       <!-- TODO: For XS breakpoint, this should be here...  -->
@@ -12,17 +12,18 @@
 
       <b-collapse id="nav-collapse" class="text-right text-md-center" is-nav>
         <b-navbar-nav>
-          <router-link v-if="!canRunBacktest" class="nav-link navbar-nav" to="/trade"
+          <router-link v-if="!canRunBacktest" class="nav-link navbar-nav" to="/trade" style ="font-size : 35px"
             >Trading</router-link
           >
-          <router-link v-if="!canRunBacktest" class="nav-link navbar-nav" to="/dashboard"
+          <router-link v-if="!canRunBacktest" class="nav-link navbar-nav" to="/dashboard" style ="font-size : 35px"
             >Dashboard</router-link
           >
-          <router-link class="nav-link navbar-nav" to="/graph">Charts</router-link>
+          <router-link class="nav-link navbar-nav" to="/graph" style ="font-size : 35px">Charts</router-link>
          
           <router-link v-if="canRunBacktest" class="nav-link navbar-nav" to="/backtest"
-            >Backtest</router-link
-          >
+            >Backtest</router-link>
+          <router-link v-if="!canRunBacktest" class="nav-link navbar-nav" to="/Per" style ="font-size : 35px"
+            >Multi-Panel</router-link>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
@@ -35,7 +36,7 @@
               <template #button-content>
                 <b-avatar size="2em" button>FT</b-avatar>
               </template>
-              <router-link class="dropdown-item" to="/settings">Settings</router-link>
+             
               <router-link
                 v-if="botCount === 1"
                 class="dropdown-item"
@@ -56,7 +57,7 @@
                   </b-nav-text>
                 </div>
               </li>
-              <router-link class="nav-link navbar-nav" to="/settings">Settings</router-link>
+             
               <router-link
                 v-if="botCount === 1"
                 class="nav-link navbar-nav"
@@ -240,10 +241,6 @@ export default class NavBar extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.logo {
-  vertical-align: middle;
-  height: 30px;
-}
 
 .dropdown-toggle::after {
   display: none;
@@ -253,7 +250,7 @@ export default class NavBar extends Vue {
   padding-left: 0.5em;
 }
 .navbar {
-  padding: 0.2rem 1rem;
+  padding: 2.0rem 1rem;
 }
 
 .router-link-active,
