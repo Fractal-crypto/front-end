@@ -15,9 +15,7 @@
           <router-link v-if="!canRunBacktest" class="nav-link navbar-nav" to="/trade" style ="font-size : 35px"
             >Trading</router-link
           >
-          <router-link v-if="!canRunBacktest" class="nav-link navbar-nav" to="/dashboard" style ="font-size : 35px"
-            >Dashboard</router-link
-          >
+    
           <router-link class="nav-link navbar-nav" to="/graph" style ="font-size : 35px">Charts</router-link>
          
           <router-link v-if="canRunBacktest" class="nav-link navbar-nav" to="/backtest"
