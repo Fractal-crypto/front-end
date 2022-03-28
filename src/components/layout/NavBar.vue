@@ -2,7 +2,6 @@
   <header>
     <b-navbar toggleable="sm" type="dark" variant="primary">
       <router-link class="navbar-brand" exact to="/">
-       
         <span class="navbar-brand-title d-sm-none d-md-inline" style ="font-size : 35px" >START</span>
       </router-link>
 
@@ -29,14 +28,13 @@
         <!-- Right aligned nav items -->
          <b-navbar-nav class="ml-auto" menu-class="w-100">
           <!-- TODO This should show outside of the dropdown in XS mode -->
-          
+
           <li v-if="hasBots" class="nav-item">
             <!-- Hide dropdown on xs, instead show below  -->
             <b-nav-item-dropdown right class="d-none d-sm-block">
               <template #button-content>
                 <b-avatar size="2em" button>FT</b-avatar>
               </template>
-             
               <router-link
                 v-if="botCount === 1"
                 class="dropdown-item"
@@ -57,7 +55,6 @@
                   </b-nav-text>
                 </div>
               </li>
-             
               <router-link
                 v-if="botCount === 1"
                 class="nav-link navbar-nav"
@@ -250,7 +247,7 @@ export default class NavBar extends Vue {
   padding-left: 0.5em;
 }
 .navbar {
-  padding: 2.0rem 1rem;
+  padding: 0.1rem 0.1rem;
 }
 
 .router-link-active,
