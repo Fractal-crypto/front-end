@@ -8,16 +8,20 @@ export enum TradeLayout {
  /* chartView = 'g-chartView', */
 }
 export enum PerLayout {
-  multiPane = 'g-multiPane',
-  openTrades = 'g-openTrades',
-  tradeHistory = 'g-tradeHistory',
-  tradeDetail = 'g-tradeDetail',
- /* chartView = 'g-chartView', */
+  dailyChart = 'g-dailyChart',
+  dailyChart2 = 'g-dailyChart2',
+  botComparison = 'g-botComparison',
+  botComparison2 = 'g-botComparison2',
+  allOpenTrades = 'g-allOpenTrades',
+  cumChartChart = 'g-cumChartChart',
+  tradesLogChart = 'g-TradesLogChart',
 }
 
 export enum DashboardLayout {
   dailyChart = 'g-dailyChart',
+  dailyChart2 = 'g-dailyChart2',
   botComparison = 'g-botComparison',
+  botComparison2 = 'g-botComparison2',
   allOpenTrades = 'g-allOpenTrades',
   cumChartChart = 'g-cumChartChart',
   tradesLogChart = 'g-TradesLogChart',
@@ -50,11 +54,11 @@ export enum LayoutMutations {
 }
 // Define default layouts
 const DEFAULT_TRADING_LAYOUT: GridItemData[] = [
-  { i: TradeLayout.multiPane, x: 0, y: 0, w: 3, h: 35 },
- /* { i: TradeLayout.chartView, x: 3, y: 0, w: 9, h: 14 }, */
-  { i: TradeLayout.tradeDetail, x: 3, y: 5, w: 9, h: 6 }, 
-  { i: TradeLayout.openTrades, x: 3, y: 0, w: 9, h: 5 },
-  { i: TradeLayout.tradeHistory, x: 3, y: 10, w: 9, h: 10 },
+ /* { i: TradeLayout.multiPane, x: 0, y: 0, w: 3, h: 35 },
+  { i: TradeLayout.chartView, x: 3, y: 0, w: 9, h: 14 }, */
+  { i: TradeLayout.tradeDetail, x: 0, y: 5, w: 12, h: 6 }, 
+  { i: TradeLayout.openTrades, x: 0, y: 0, w: 12, h: 5 },
+  { i: TradeLayout.tradeHistory, x: 0, y: 10, w: 12, h: 10 },
 ];
 
 // Currently only multiPane is visible
@@ -66,20 +70,23 @@ const DEFAULT_TRADING_LAYOUT_SM: GridItemData[] = [
   { i: TradeLayout.tradeHistory, x: 0, y: 25, w: 12, h: 0 },
 ];
 const DEFAULT_PER_LAYOUT: GridItemData[] = [
-  { i: PerLayout.multiPane, x: 0, y: 0, w: 3, h: 35 },
- /* { i: TradeLayout.chartView, x: 3, y: 0, w: 9, h: 14 }, */
-  { i: PerLayout.tradeDetail, x: 3, y: 5, w: 9, h: 6 }, 
-  { i: PerLayout.openTrades, x: 3, y: 0, w: 9, h: 5 },
-  { i: PerLayout.tradeHistory, x: 3, y: 10, w: 9, h: 10 },
+  { i: DashboardLayout.botComparison, x: 0, y: 0, w: 6, h: 6 } /* Bot Comparison */,
+  { i: DashboardLayout.botComparison2, x: 0, y: 12, w: 6, h: 6 } /* Bot Comparison */,
+  { i: DashboardLayout.dailyChart, x: 6, y: 0, w: 6, h: 6 },
+  { i: DashboardLayout.dailyChart2, x: 6, y: 12, w: 6, h: 6 },
+  { i: DashboardLayout.allOpenTrades, x: 0, y: 6, w: 6, h: 6 },
+  { i: DashboardLayout.cumChartChart, x: 6, y: 6, w: 6, h: 6 },
+  { i: DashboardLayout.tradesLogChart, x: 0, y: 12, w: 12, h: 4 },
 ];
 
 // Currently only multiPane is visible
 const DEFAULT_PER_LAYOUT_SM: GridItemData[] = [
-  { i: PerLayout.multiPane, x: 0, y: 0, w: 12, h: 10 },
- /* { i: TradeLayout.chartView, x: 0, y: 10, w: 12, h: 0 },  */
-  { i: PerLayout.tradeDetail, x: 0, y: 19, w: 12, h: 0 }, 
-  { i: PerLayout.openTrades, x: 0, y: 8, w: 12, h: 0 },
-  { i: PerLayout.tradeHistory, x: 0, y: 25, w: 12, h: 0 },
+  { i: DashboardLayout.botComparison, x: 0, y: 0, w: 12, h: 6 } /* Bot Comparison */,
+  { i: DashboardLayout.botComparison2, x: 0, y: 30, w: 8, h: 6 } /* Bot Comparison */,
+  { i: DashboardLayout.allOpenTrades, x: 0, y: 6, w: 12, h: 8 },
+  { i: DashboardLayout.dailyChart, x: 0, y: 14, w: 12, h: 6 },
+  { i: DashboardLayout.cumChartChart, x: 0, y: 20, w: 12, h: 6 },
+  { i: DashboardLayout.tradesLogChart, x: 0, y: 26, w: 12, h: 4 },
 ];
 
 const DEFAULT_DASHBOARD_LAYOUT: GridItemData[] = [
@@ -180,7 +187,7 @@ export default {
       localStorage.setItem(STORE_LAYOUT_LOCK, JSON.stringify(locked));
     },
     [LayoutMutations.setPerLayout](state, layout) {
-      state.tradingLayout = layout;
+      state.dashboardLayout = layout;
       localStorage.setItem(STORE_PER_LAYOUT, JSON.stringify(layout));
     },
   },

@@ -2,7 +2,6 @@
   <header>
     <b-navbar toggleable="sm" type="dark" variant="primary">
       <router-link class="navbar-brand" exact to="/">
-
         <span class="navbar-brand-title d-sm-none d-md-inline" style ="font-size : 35px" >START</span>
       </router-link>
 
@@ -19,11 +18,11 @@
             >Dashboard</router-link
           >
           <router-link class="nav-link navbar-nav" to="/graph" style ="font-size : 35px">Charts</router-link>
-
+         
           <router-link v-if="canRunBacktest" class="nav-link navbar-nav" to="/backtest"
             >Backtest</router-link>
           <router-link v-if="!canRunBacktest" class="nav-link navbar-nav" to="/Per" style ="font-size : 35px"
-            >Performance</router-link>
+            >Multi-Panel</router-link>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
@@ -36,7 +35,6 @@
               <template #button-content>
                 <b-avatar size="2em" button>FT</b-avatar>
               </template>
-
               <router-link
                 v-if="botCount === 1"
                 class="dropdown-item"
@@ -57,7 +55,6 @@
                   </b-nav-text>
                 </div>
               </li>
-
               <router-link
                 v-if="botCount === 1"
                 class="nav-link navbar-nav"

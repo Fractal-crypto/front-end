@@ -2,149 +2,161 @@
   <GridLayout
     class="h-100 w-100"
     :row-height="50"
-    :layout="gridLayout"
+    :layout.sync="gridLayout"
     :vertical-compact="false"
     :margin="[5, 5]"
     :responsive-layouts="responsiveGridLayouts"
     :is-resizable="!isLayoutLocked"
     :is-draggable="!isLayoutLocked"
     :responsive="true"
+    :prevent-collision="true"
     :cols="{ lg: 12, md: 12, sm: 12, xs: 4, xxs: 2 }"
-    @layout-updated="layoutUpdatedEvent"
+    @layout-updated="layoutUpdated"
     @breakpoint-changed="breakpointChanged"
   >
     <GridItem
-      v-if="gridLayoutMultiPane.h != 0"
-      :i="gridLayoutMultiPane.i"
-      :x="gridLayoutMultiPane.x"
-      :y="gridLayoutMultiPane.y"
-      :w="gridLayoutMultiPane.w"
-      :h="gridLayoutMultiPane.h"
-      drag-allow-from=".card-header"
+      :i="gridLayoutDaily.i"
+      :x="gridLayoutDaily.x"
+      :y="gridLayoutDaily.y"
+      :w="gridLayoutDaily.w"
+      :h="gridLayoutDaily.h"
+      :min-w="3"
+      :min-h="4"
+      drag-allow-from=".drag-header"
     >
       <DraggableContainer>
-          <Performance class="performance-view" />
-        <!-- <b-tabs content-class="mt-3" class="mt-1">
-          <b-tab title="Pairs combined" active>
-            <PairSummary :pairlist="whitelist" :current-locks="currentLocks" :trades="openTrades" />
-          </b-tab>
-          <b-tab title="General">
-            <div class="d-flex justify-content-center">
-              <BotControls class="mt-1 mb-2" />
-            </div>
-            <BotStatus />
-          </b-tab>
-          <b-tab title="Performance">
-            <Performance class="performance-view" />
-          </b-tab>
-          <b-tab title="Balance" lazy>
-            <Balance />
-          </b-tab>
-          <b-tab title="Daily Stats" lazy>
-            <DailyStats />
-          </b-tab>
-          <b-tab title="Pair Locks" lazy>
-            <PairLockList />
-          </b-tab>
-        </b-tabs> -->
-      </DraggableContainer>
-    </GridItem>
-    <GridItem
-      v-if="gridLayoutOpenTrades.h != 0"
-      :i="gridLayoutOpenTrades.i"
-      :x="gridLayoutOpenTrades.x"
-      :y="gridLayoutOpenTrades.y"
-      :w="gridLayoutOpenTrades.w"
-      :h="gridLayoutOpenTrades.h"
-      drag-allow-from=".card-header"
-    >
-      <DraggableContainer header="Open Trades">
-        <TradeList
-          class="open-trades"
-          :trades="openTrades"
-          title="Open trades"
-          :active-trades="true"
-          empty-text="Currently no open trades."
+        <Balance
         />
       </DraggableContainer>
     </GridItem>
     <GridItem
-      v-if="gridLayoutTradeHistory.h != 0"
-      :i="gridLayoutTradeHistory.i"
-      :x="gridLayoutTradeHistory.x"
-      :y="gridLayoutTradeHistory.y"
-      :w="gridLayoutTradeHistory.w"
-      :h="gridLayoutTradeHistory.h"
-      drag-allow-from=".card-header"
-    >
-      <DraggableContainer header="Closed Trades">
-        <TradeList
-          class="trade-history"
-          :trades="closedTrades"
-          title="Trade history"
-          :show-filter="true"
-          empty-text="No closed trades so far."
-        />
-      </DraggableContainer>
-    </GridItem>
-    <GridItem
-      v-if="detailTradeId && gridLayoutTradeDetail.h != 0"
-      :i="gridLayoutTradeDetail.i"
-      :x="gridLayoutTradeDetail.x"
-      :y="gridLayoutTradeDetail.y"
-      :w="gridLayoutTradeDetail.w"
-      :h="gridLayoutTradeDetail.h"
+      :i="gridLayoutDaily2.i"
+      :x="gridLayoutDaily2.x"
+      :y="gridLayoutDaily2.y"
+      :w="gridLayoutDaily2.w"
+      :h="gridLayoutDaily2.h"
+      :min-w="3"
       :min-h="4"
-      drag-allow-from=".card-header"
+      drag-allow-from=".drag-header"
     >
-      <DraggableContainer header="Trade Detail">
-        <TradeDetail :trade="tradeDetail" :stake-currency="stakeCurrency" />
+      <DraggableContainer>
+        <BotStatus class="mt-1 mb-2" 
+        />
       </DraggableContainer>
     </GridItem>
-    <!-- <GridItem
-      v-if="gridLayoutTradeDetail.h != 0"
-      :i="gridLayoutChartView.i"
-      :x="gridLayoutChartView.x"
-      :y="gridLayoutChartView.y"
-      :w="gridLayoutChartView.w"
-      :h="gridLayoutChartView.h"
-      :min-h="6"
-      drag-allow-from=".card-header"
+    <GridItem
+      :i="gridLayoutBotComparison.i"
+      :x="gridLayoutBotComparison.x"
+      :y="gridLayoutBotComparison.y"
+      :w="gridLayoutBotComparison.w"
+      :h="gridLayoutBotComparison.h"
+      :min-w="3"
+      :min-h="4"
+      drag-allow-from=".drag-header"
     >
-      <DraggableContainer header="Chart">
-        <CandleChartContainer
-          :available-pairs="whitelist"
-          :historic-view="!!false"
-          :timeframe="timeframe"
-          :trades="allTrades"
-        >
-        </CandleChartContainer>
+      <DraggableContainer >
+        <DailyStats />
       </DraggableContainer>
-    </GridItem> -->
+    </GridItem>
+    <GridItem
+      :i="gridLayoutBotComparison2.i"
+      :x="gridLayoutBotComparison2.x"
+      :y="gridLayoutBotComparison2.y"
+      :w="gridLayoutBotComparison2.w"
+      :h="gridLayoutBotComparison2.h"
+      :min-w="3"
+      :min-h="4"
+      drag-allow-from=".drag-header"
+    >
+      <DraggableContainer >
+        <PairLockList />
+      </DraggableContainer>
+    </GridItem>
+    <GridItem
+      :i="gridLayoutAllOpenTrades.i"
+      :x="gridLayoutAllOpenTrades.x"
+      :y="gridLayoutAllOpenTrades.y"
+      :w="gridLayoutAllOpenTrades.w"
+      :h="gridLayoutAllOpenTrades.h"
+      :min-w="3"
+      :min-h="4"
+      drag-allow-from=".drag-header"
+    >
+      <DraggableContainer header="Pairs combined">
+        <PairSummary :pairlist="whitelist" :current-locks="currentLocks" :trades="openTrades" />
+      </DraggableContainer>
+    </GridItem>
+    <GridItem
+      :i="gridLayoutCumChart.i"
+      :x="gridLayoutCumChart.x"
+      :y="gridLayoutCumChart.y"
+      :w="gridLayoutCumChart.w"
+      :h="gridLayoutCumChart.h"
+      :min-w="3"
+      :min-h="4"
+      drag-allow-from=".drag-header"
+    >
+<!--      <DraggableContainer header="Cumulative Profit">-->
+<!--        <CumProfitChart :trades="allTradesAllBots" :show-title="false" />-->
+<!--      </DraggableContainer>-->
+      <DraggableContainer>
+        <Performance class="performance-view" />
+      </DraggableContainer>
+    </GridItem>
+    <GridItem
+      :i="gridLayoutTradesLogChart.i"
+      :x="gridLayoutTradesLogChart.x"
+      :y="gridLayoutTradesLogChart.y"
+      :w="gridLayoutTradesLogChart.w"
+      :h="gridLayoutTradesLogChart.h"
+      :min-w="3"
+      :min-h="4"
+      drag-allow-from=".drag-header"
+    >
+<!--      <DraggableContainer header="Trades Log">-->
+<!--        <TradesLogChart :trades="allTradesAllBots" :show-title="false" />-->
+<!--      </DraggableContainer>-->
+    </GridItem>
   </GridLayout>
 </template>
 
 <script lang="ts">
+import { formatPrice } from '@/shared/formatters';
+
 import { Component, Vue } from 'vue-property-decorator';
 import { namespace } from 'vuex-class';
 import { GridLayout, GridItem, GridItemData } from 'vue-grid-layout';
+
+import DailyChart from '@/components/charts/DailyChart.vue';
+import DailyChart2 from '@/components/charts/DailyChart2.vue';
+import CumProfitChart from '@/components/charts/CumProfitChart.vue';
+import TradesLogChart from '@/components/charts/TradesLog.vue';
+import BotComparisonList from '@/components/ftbot/BotComparisonList.vue';
+import BotComparisonList2 from '@/components/ftbot/BotComparisonList2.vue';
+import TradeList from '@/components/ftbot/TradeList.vue';
+import DraggableContainer from '@/components/layout/DraggableContainer.vue';
+
 
 import Balance from '@/components/ftbot/Balance.vue';
 import BotControls from '@/components/ftbot/BotControls.vue';
 import BotStatus from '@/components/ftbot/BotStatus.vue';
 import CandleChartContainer from '@/components/charts/CandleChartContainer.vue';
 import DailyStats from '@/components/ftbot/DailyStats.vue';
-import DraggableContainer from '@/components/layout/DraggableContainer.vue';
 import FTBotAPIPairList from '@/components/ftbot/FTBotAPIPairList.vue';
 import PairLockList from '@/components/ftbot/PairLockList.vue';
 import PairSummary from '@/components/ftbot/PairSummary.vue';
 import Performance from '@/components/ftbot/Performance.vue';
 import TradeDetail from '@/components/ftbot/TradeDetail.vue';
-import TradeList from '@/components/ftbot/TradeList.vue';
 
-import { Lock, Trade } from '@/types';
+import {
+  PerLayout,
+  findGridLayout,
+  LayoutActions,
+  LayoutGetters,
+} from '@/store/modules/layout';
+import { Trade, DailyReturnValue, DailyPayload, ClosedTrade } from '@/types';
 import { BotStoreGetters } from '@/store/modules/ftbot';
-import { TradeLayout, findGridLayout, LayoutGetters, LayoutActions } from '@/store/modules/layout';
+import { MultiBotStoreGetters } from '@/store/modules/botStoreWrapper';
 import StoreModules from '@/store/storeSubModules';
 
 const ftbot = namespace(StoreModules.ftbot);
@@ -152,23 +164,30 @@ const layoutNs = namespace(StoreModules.layout);
 
 @Component({
   components: {
+    GridLayout,
+    GridItem,
+    DailyChart,
+    DailyChart2,
+    CumProfitChart,
+    TradesLogChart,
+    BotComparisonList,
+    BotComparisonList2,
+    TradeList,
+    DraggableContainer,
     Balance,
     BotControls,
     BotStatus,
     CandleChartContainer,
     DailyStats,
-    DraggableContainer,
     FTBotAPIPairList,
-    GridItem,
-    GridLayout,
     PairLockList,
     PairSummary,
     Performance,
     TradeDetail,
-    TradeList,
   },
 })
 export default class Per extends Vue {
+
   @ftbot.Getter [BotStoreGetters.detailTradeId]!: number;
 
   @ftbot.Getter [BotStoreGetters.openTrades]!: Trade[];
@@ -181,23 +200,44 @@ export default class Per extends Vue {
 
   @ftbot.Getter [BotStoreGetters.timeframe]!: string;
 
-  @ftbot.Getter [BotStoreGetters.currentLocks]!: Lock[];
-
   @ftbot.Getter [BotStoreGetters.whitelist]!: string[];
 
   @ftbot.Getter [BotStoreGetters.stakeCurrency]!: string;
+  
+  @ftbot.Getter [MultiBotStoreGetters.botCount]!: number;
 
-  @layoutNs.Getter [LayoutGetters.getPerLayout]!: GridItemData[];
+  @ftbot.Getter [MultiBotStoreGetters.allOpenTradesAllBots]!: Trade[];
+
+  @ftbot.Getter [MultiBotStoreGetters.allTradesAllBots]!: ClosedTrade[];
+
+  @ftbot.Getter [MultiBotStoreGetters.allDailyStatsAllBots]!: Record<string, DailyReturnValue>;
+
+  @ftbot.Getter [BotStoreGetters.performanceStats]!: PerformanceEntry[];
+
+  @ftbot.Action getPerformance;
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  @ftbot.Action allGetDaily!: (payload?: DailyPayload) => void;
+
+  @ftbot.Action getTrades;
+
+  @ftbot.Action getOpenTrades;
+
+  @ftbot.Action getProfit;
 
   @layoutNs.Getter [LayoutGetters.getPerLayoutSm]!: GridItemData[];
+
+  @layoutNs.Getter [LayoutGetters.getPerLayout]!: GridItemData[];
 
   @layoutNs.Action [LayoutActions.setPerLayout];
 
   @layoutNs.Getter [LayoutGetters.getLayoutLocked]: boolean;
 
-  currentBreakpoint = '';
+  formatPrice = formatPrice;
 
   localGridLayout: GridItemData[] = [];
+
+  currentBreakpoint = '';
 
   get isLayoutLocked() {
     return this.getLayoutLocked || !this.isResizableLayout;
@@ -207,7 +247,7 @@ export default class Per extends Vue {
     return ['', 'sm', 'md', 'lg', 'xl'].includes(this.currentBreakpoint);
   }
 
-  get gridLayout(): GridItemData[] {
+  get gridLayout() {
     if (this.isResizableLayout) {
       return this.getPerLayout;
     }
@@ -218,44 +258,56 @@ export default class Per extends Vue {
     // Dummy setter to make gridLayout happy. Updates happen through layoutUpdated.
   }
 
-  get gridLayoutMultiPane(): GridItemData {
-    return findGridLayout(this.gridLayout, TradeLayout.multiPane);
-  }
-
-  get gridLayoutOpenTrades(): GridItemData {
-    return findGridLayout(this.gridLayout, TradeLayout.openTrades);
-  }
-
-  get gridLayoutTradeHistory(): GridItemData {
-    return findGridLayout(this.gridLayout, TradeLayout.tradeHistory);
-  }
-
-  get gridLayoutTradeDetail(): GridItemData {
-    return findGridLayout(this.gridLayout, TradeLayout.tradeDetail);
-  }
-
-  //get gridLayoutChartView(): GridItemData {
-  //  return findGridLayout(this.gridLayout, TradeLayout.chartView);
-  //}
-
-  mounted() {
-    this.localGridLayout = [...this.getPerLayoutSm];
-  }
-
-  layoutUpdatedEvent(newLayout) {
+  layoutUpdated(newLayout) {
+    // Frozen layouts for small screen sizes.
     if (this.isResizableLayout) {
+      console.log('newlayout', newLayout);
+      console.log('saving dashboard');
       this.setPerLayout(newLayout);
     }
   }
 
+  get gridLayoutDaily(): GridItemData {
+    return findGridLayout(this.gridLayout, PerLayout.dailyChart);
+  }
+  get gridLayoutDaily2(): GridItemData {
+    return findGridLayout(this.gridLayout, PerLayout.dailyChart2);
+  }
+  get gridLayoutBotComparison(): GridItemData {
+    return findGridLayout(this.gridLayout, PerLayout.botComparison);
+  }
+  get gridLayoutBotComparison2(): GridItemData {
+    return findGridLayout(this.gridLayout, PerLayout.botComparison2);
+  }
+  get gridLayoutAllOpenTrades(): GridItemData {
+    return findGridLayout(this.gridLayout, PerLayout.allOpenTrades);
+  }
+
+  get gridLayoutCumChart(): GridItemData {
+    return findGridLayout(this.gridLayout, PerLayout.cumChartChart);
+  }
+
+  get gridLayoutTradesLogChart(): GridItemData {
+    return findGridLayout(this.gridLayout, PerLayout.tradesLogChart);
+  }
+
   get responsiveGridLayouts() {
     return {
-      sm: this[LayoutGetters.getPerLayoutSm],
+      sm: this.getPerLayoutSm,
     };
   }
 
+  mounted() {
+    this.allGetDaily({ timescale: 30 });
+    this.getTrades();
+    this.getOpenTrades();
+    this.getPerformance();
+    this.getProfit();
+    this.localGridLayout = [...this.getPerLayoutSm];
+  }
+
   breakpointChanged(newBreakpoint) {
-    console.log('breakpoint:', newBreakpoint);
+    // console.log('breakpoint:', newBreakpoint);
     this.currentBreakpoint = newBreakpoint;
   }
 }

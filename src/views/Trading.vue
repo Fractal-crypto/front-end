@@ -13,7 +13,7 @@
     @layout-updated="layoutUpdatedEvent"
     @breakpoint-changed="breakpointChanged"
   >
-    <GridItem
+  <!--  <GridItem
       v-if="gridLayoutMultiPane.h != 0"
       :i="gridLayoutMultiPane.i"
       :x="gridLayoutMultiPane.x"
@@ -44,7 +44,7 @@
           </b-tab>
         </b-tabs>
       </DraggableContainer>
-    </GridItem>
+    </GridItem> -->
     <GridItem
       v-if="gridLayoutOpenTrades.h != 0"
       :i="gridLayoutOpenTrades.i"
