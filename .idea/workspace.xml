@@ -2,27 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="da62b8ed-52ce-4fce-b5d2-80a97314ff0f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.vite/_metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/chunk-OJBRU2GA.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/chunk-OJBRU2GA.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/firebase_analytics.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/firebase_analytics.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/firebase_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.vite/firebase_app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/firebase_auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.vite/firebase_auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/vuex-class.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.vite/vuex-class.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.yarn-integrity" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.yarn-integrity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/esbuild-linux-64/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/esbuild-linux-64/bin/esbuild" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/esbuild-linux-64/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/LoginView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/LoginView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Logintest.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Logintest.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Vue Single File Component" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -53,6 +47,8 @@
       <updated>1648342659284</updated>
       <workItem from="1648342662904" duration="1378000" />
       <workItem from="1648521615310" duration="6679000" />
+      <workItem from="1648599510472" duration="21000" />
+      <workItem from="1648707802411" duration="3316000" />
     </task>
     <servers />
   </component>

@@ -1,9 +1,8 @@
 <template>
   <div>
     <div id="app" class="d-flex flex-column vh-100">
-      <NavBar v-if="!isChecked"></NavBar>
+      <NavBar v-if="$route.name!=='Login2'"></NavBar>
         <Body class="flex-fill overflow-auto" />
-        <NavFooter v-if="!isChecked"></NavFooter>
       </div>
   </div>
 </template>
@@ -29,15 +28,15 @@
     mounted() {
       setTimezone(this.timezone);
     }
-    created() {
-      console.log("sdasd"+this.isChecked)
-      console.log(this.isChecked)
-      if(document.location.pathname==='/login2')
-      {
-        this.isChecked = true;
-      }
-
-    }
+    // created() {
+    //   console.log("sdasd"+this.isChecked)
+    //   console.log(this.isChecked)
+    //   if(document.location.pathname==='/login2')
+    //   {
+    //     this.isChecked = true;
+    //   }
+    //
+    // }
   }
   </script>
 

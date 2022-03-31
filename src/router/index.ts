@@ -5,6 +5,7 @@ import Error404 from '@/views/Error404.vue';
 import store from '@/store';
 import StoreModules from '@/store/storeSubModules';
 import { MultiBotStoreGetters } from '@/store/modules/botStoreWrapper';
+import Logintest from "../views/Logintest.vue";
 import { auth } from '@/firebase'
 Vue.use(VueRouter);
 
@@ -26,7 +27,7 @@ const routes: Array<RouteConfig> = [
   {
     path: '/login2',
     name: 'Login2',
-    component: () => import('@/views/Logintest.vue')
+    component: Logintest,
   },
   {
     path: '/per',
