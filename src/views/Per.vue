@@ -29,7 +29,7 @@
         />
       </DraggableContainer>
     </GridItem>
-    <GridItem
+    <!-- <GridItem
       :i="gridLayoutDaily2.i"
       :x="gridLayoutDaily2.x"
       :y="gridLayoutDaily2.y"
@@ -43,7 +43,7 @@
         <BotStatus class="mt-1 mb-2" 
         />
       </DraggableContainer>
-    </GridItem>
+    </GridItem> -->
     <GridItem
       :i="gridLayoutBotComparison.i"
       :x="gridLayoutBotComparison.x"
@@ -58,7 +58,7 @@
         <DailyStats />
       </DraggableContainer>
     </GridItem>
-    <GridItem
+    <!-- <GridItem
       :i="gridLayoutBotComparison2.i"
       :x="gridLayoutBotComparison2.x"
       :y="gridLayoutBotComparison2.y"
@@ -71,7 +71,7 @@
       <DraggableContainer >
         <PairLockList />
       </DraggableContainer>
-    </GridItem>
+    </GridItem> -->
     <GridItem
       :i="gridLayoutAllOpenTrades.i"
       :x="gridLayoutAllOpenTrades.x"

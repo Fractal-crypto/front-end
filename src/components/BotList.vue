@@ -1,5 +1,5 @@
 <template>
-  <div v-if="botCount > 0">
+  <div v-if="botCount > 0" class="hide">
     <h3 v-if="!small" style="color: red;">Let's start Trading!!!</h3>
     <b-list-group>
       <b-list-group-item
@@ -44,4 +44,7 @@ export default class BotList extends Vue {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.hide {
+  display: none;
+}</style>

@@ -27,7 +27,7 @@ import BotList from '@/components/BotList.vue';
 
 @Component({
   components: { BotList },
-})
+}) 
 export default class Home extends Vue {}
 </script>
 

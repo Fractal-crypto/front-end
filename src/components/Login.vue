@@ -106,10 +106,10 @@ export default class Login extends Vue {
   };
 
   auth: AuthPayload = {
-    botName: '',
+    botName: 'freqtrade',
     url: defaultURL,
-    username: '',
-    password: '',
+    username: 'admin',
+    password: 'admin',
   };
 
   @Emit('loginResult')
@@ -152,7 +152,9 @@ export default class Login extends Vue {
     evt.preventDefault();
     this.handleSubmit();
   }
-
+  mounted(){
+    this.handleSubmit();
+ } 
   handleSubmit() {
     // Exit when the form isn't valid
     if (!this.checkFormValidity()) {

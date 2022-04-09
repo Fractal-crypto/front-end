@@ -20,5 +20,6 @@ export default class LoginView extends Vue {}
 <style scoped>
 .container {
   max-width: 520px;
+  display: none;
 }
 </style>
