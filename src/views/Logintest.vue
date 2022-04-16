@@ -82,7 +82,7 @@
     <main class="login2">
         <section class="forms">
             <form class="register" @submit.prevent="register">
-                <h2>Register</h2>
+                <h2>LOGIN</h2>
                 <input
                     type="email"
                     placeholder="Email address"
@@ -96,11 +96,15 @@
                 <input
                     type="submit"
                     value="Register" />
+                    
 
             </form>
 
+            
+
             <form class="login" @submit.prevent="login">
-                <h2>login</h2>
+              
+             <!--   <h2>login</h2>
                 <input
                     type="email"
                     placeholder="Email address"
@@ -113,12 +117,16 @@
 
                 <input
                     type="submit"
-                    value="login" />
+                    value="login" />--->
+
+                    <input
+                    type="submit"
+                    value="Login" />
 
             </form>
 
             <form class="login"></form>
-
+          
         </section>
     </main>
 </template>
@@ -133,7 +141,7 @@ export default {
         const store = useStore();
 
         const login = () => {
-            store.dispatch('login', login_form.value);
+            store.dispatch('login', register_form.value);
         }
 
         const register = () => {
@@ -156,38 +164,45 @@ export default {
 forms {
     display: flex;
     min_height: 1000vh;
+    background-color: #000;
 }
 
 from {
     flex: 1 1 0%;
     padding: 8rem 1rem 1rem;
+    background-color: #000;
 
 }
-
+.login2 {
+  background-color: #000;
+}
 form.register {
-    color: #FFF;
+    color: rgb(0, 0, 0);
     background-color: #000;
     background-image: linear-gradient(
         to bottom right,
-         #000 70%,
-        #fff 100%
+         #000 100%,
+        rgb(5, 5, 5) 100%
     );
 }
 
 form.login {
-    color: #FFF;
+    color: rgb(2, 2, 2);
     background-color: #000;
+    height: 327px;
     background-image: linear-gradient(
         to bottom right,
-         #000 20%,
-        #fff 100%
+         #000 70%,
+        rgb(255, 28, 28) 100%
     );
 }
 
 h2 {
+  padding-top: 50px;
 	font-size: 2rem;
 	text-transform: uppercase;
 	margin-bottom: 2rem;
+  color: rgb(255, 255, 255);
 }
 input {
 	appearance: none;
@@ -221,8 +236,8 @@ form.login input:not([type="submit"]) {
 	border-bottom: 3px solid #FFF;
 }
 form.login input[type="submit"] {
-	background-color: #000;
-	color: #FFF;
+	background-color: rgb(255, 255, 255);
+	color: rgb(0, 0, 0);
 	font-weight: 700;
 	padding: 1rem 2rem;
 	border-radius: 1.9rem;
