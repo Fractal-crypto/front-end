@@ -44,8 +44,8 @@
               >
             </b-nav-item-dropdown>
             <div class="d-block d-sm-none">
-              <!-- Visible only on XS -->
-              <li class="nav-item text-secondary ml-2 d-sm-none d-flex justify-content-between">
+              
+              <!-- <li class="nav-item text-secondary ml-2 d-sm-none d-flex justify-content-between">
                 <div class="d-flex">
                   <b-nav-text class="verticalCenter small mr-2">
                     {{ botName || 'No bot selected' }}
@@ -54,7 +54,7 @@
                     {{ isBotOnline ? 'Online' : 'Offline' }}
                   </b-nav-text>
                 </div>
-              </li>
+              </li> -->
               <router-link
                 v-if="botCount === 1"
                 class="nav-link navbar-nav"
@@ -65,9 +65,9 @@
             </div>
           </li>
           <li v-else>
-            <!-- should open Modal window! -->
+            
             <LoginModal />
-          </li>
+          </li> 
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
