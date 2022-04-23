@@ -6,6 +6,13 @@
     <hr />
     <img alt="Freqtrade logo" src="../assets/Robot.png" width="450px" class="my-5" />
     <!--    <div alt="Freqtrade logo" class="logo-svg my-5 mx-auto" />-->
+    <b-form-group style="color: black;" label="API key">
+    <b-form-input>
+      id = "API-key"
+      v-model="API_key"
+      placeholder = "please input your API key"
+    </b-form-input>
+    </b-form-group>
     <div>
       <h1 style="color: red;">TuKorea Crypto currency trading bot</h1>
     </div>
