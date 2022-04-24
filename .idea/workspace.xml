@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="da62b8ed-52ce-4fce-b5d2-80a97314ff0f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Home.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,11 +48,23 @@
       <workItem from="1648342662904" duration="1378000" />
       <workItem from="1648521615310" duration="6679000" />
       <workItem from="1648599510472" duration="21000" />
-      <workItem from="1648707802411" duration="3316000" />
+      <workItem from="1648707802411" duration="6106000" />
+      <workItem from="1648783871321" duration="1465000" />
+      <workItem from="1648947651672" duration="1402000" />
+      <workItem from="1649404890868" duration="2563000" />
+      <workItem from="1649484123240" duration="4613000" />
+      <workItem from="1649552250838" duration="3220000" />
+      <workItem from="1649671987650" duration="724000" />
+      <workItem from="1649740035378" duration="328000" />
+      <workItem from="1649740372672" duration="19000" />
+      <workItem from="1650157905666" duration="714000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="nginx.conf" />
   </component>
 </project>
