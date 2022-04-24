@@ -50,9 +50,7 @@
           </b-select>
         </div>
 
-        <div class="mr-0 mr-md-1">
-          <b-button size="sm" title="Plot configurator" @click="showConfigurator">&#9881;</b-button>
-        </div>
+      
       </div>
       <div class="row mr-1 ml-1 h-100">
         <CandleChart
