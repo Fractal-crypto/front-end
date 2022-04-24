@@ -165,7 +165,7 @@ export function createBotSubStore(botId: string, botName: string) {
     state,
     getters: {
       [BotStoreGetters.botName](state: FtbotStateType) {
-        return state.botState?.bot_name || 'freqtrade';
+        return state.botState?.bot_name || 'bot';
       },
       [BotStoreGetters.isBotOnline](state: FtbotStateType): boolean {
         return state.isBotOnline;

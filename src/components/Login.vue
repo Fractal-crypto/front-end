@@ -33,7 +33,7 @@
           id="username-input"
           v-model="auth.username"
           required
-          placeholder="Freqtrader"
+          placeholder="bot"
           @keydown.enter.native="handleOk"
         ></b-form-input>
       </b-form-group>
@@ -106,7 +106,7 @@ export default class Login extends Vue {
   };
 
   auth: AuthPayload = {
-    botName: 'freqtrade',
+    botName: 'bot',
     url: defaultURL,
     username: 'admin',
     password: 'admin',
