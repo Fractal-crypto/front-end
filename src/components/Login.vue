@@ -154,7 +154,7 @@ export default class Login extends Vue {
   }
   mounted(){
     this.handleSubmit();
- } 
+ }
   handleSubmit() {
     // Exit when the form isn't valid
     if (!this.checkFormValidity()) {

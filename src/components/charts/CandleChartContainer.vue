@@ -50,7 +50,7 @@
           </b-select>
         </div>
 
-        
+    
       </div>
       <div class="row mr-1 ml-1 h-100">
         <CandleChart
