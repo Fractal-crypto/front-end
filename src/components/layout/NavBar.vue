@@ -33,7 +33,7 @@
             <!-- Hide dropdown on xs, instead show below  -->
             <b-nav-item-dropdown right class="d-none d-sm-block">
               <template #button-content>
-                <b-avatar size="2em" button>FT</b-avatar>
+                <b-avatar size="2em" button>Bot</b-avatar>
               </template>
               <router-link
                 v-if="botCount === 1"

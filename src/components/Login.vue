@@ -106,7 +106,7 @@ export default class Login extends Vue {
   };
 
   auth: AuthPayload = {
-    botName: 'freqtrade',
+    botName: 'bot',
     url: defaultURL,
     username: 'admin',
     password: 'admin',
