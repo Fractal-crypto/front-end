@@ -20,7 +20,7 @@
       @row-selected="onRowSelected"
     >
       <template #cell(actions)="row">
-        
+      
         <b-popover :target="`btn-actions_${row.index}`" triggers="focus" placement="left">
           <trade-actions
             :trade="row.item"
