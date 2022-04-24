@@ -18,7 +18,7 @@
             >Dashboard</router-link
           >
           <router-link class="nav-link navbar-nav" to="/graph" style ="font-size : 35px">Charts</router-link>
-         
+
           <router-link v-if="canRunBacktest" class="nav-link navbar-nav" to="/backtest"
             >Backtest</router-link>
           <router-link v-if="!canRunBacktest" class="nav-link navbar-nav" to="/Per" style ="font-size : 35px"
@@ -33,7 +33,7 @@
             <!-- Hide dropdown on xs, instead show below  -->
             <b-nav-item-dropdown right class="d-none d-sm-block">
               <template #button-content>
-                <b-avatar size="2em" button>FT</b-avatar>
+                <b-avatar size="2em" button>BOT</b-avatar>
               </template>
               <router-link
                 v-if="botCount === 1"
@@ -44,7 +44,7 @@
               >
             </b-nav-item-dropdown>
             <div class="d-block d-sm-none">
-              
+
               <!-- <li class="nav-item text-secondary ml-2 d-sm-none d-flex justify-content-between">
                 <div class="d-flex">
                   <b-nav-text class="verticalCenter small mr-2">
@@ -65,9 +65,9 @@
             </div>
           </li>
           <li v-else>
-            
+
             <LoginModal />
-          </li> 
+          </li>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
